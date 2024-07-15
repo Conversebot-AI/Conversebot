@@ -12,7 +12,7 @@ SECRET_KEY = settings.SECRET_KEY
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
