@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16
+    ports:
+      - "5400:5432"  # Map container port 5432 to host port 5433
+    environment:
+      POSTGRES_DB: Ai-conversebotdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ""
+  web:
+    build: .
+    command: python /app/Conversebot-backend/manage.py runserver 127.0.0.1:8000
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    env_file:
+      - Conversebot-backend/.env
+    environment:
+      POSTGRES_DB: Ai-conversebotdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ""
+    depends_on:
+      - db
+
