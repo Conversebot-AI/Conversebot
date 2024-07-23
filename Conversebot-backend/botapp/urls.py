@@ -1,7 +1,8 @@
 from django.urls import path
-
-from . import views
+from .views import BotView
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path('home/', BotView.as_view())
+    # path("", views.index, name="index"),
+
 ]
