@@ -1,8 +1,9 @@
-from django.http import HttpResponse
 from rest_framework import generics
 from .serializers import Bot_app
-from .models import Question
+from django.contrib.auth.models import User
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 class BotView(generics.CreateAPIView):
-    queryset = Question.objects.all()
+    queryset = User.objects.all()
     serializer_class = Bot_app
+    permission_classes = [AllowAny]

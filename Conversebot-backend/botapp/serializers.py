@@ -1,8 +1,13 @@
 from rest_framework import serializers
-from .models import Question
+from django.contrib.auth.models import User
 
 class Bot_app(serializers.ModelSerializer):
     class Meta:
-        model = Question
-        fields = ('id', 'question_text', 'pub_date')
+        model = User
+        fields = ("id", "username", "password")
+        extra_kwargs = {"password": {"write_only": True}}
+    
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        return user
 
