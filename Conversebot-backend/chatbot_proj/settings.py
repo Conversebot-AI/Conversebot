@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'botapp.apps.BotappConfig',
+    'chatbot_proj',
     'rest_framework',
     "corsheaders",
 ]

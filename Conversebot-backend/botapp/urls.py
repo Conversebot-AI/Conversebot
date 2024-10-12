@@ -1,8 +1,7 @@
 from django.urls import path
-from .views import BotView
+from .views import UserCreateView, ChatMessageView
 
 urlpatterns = [
-    path('home/', BotView.as_view())
-    # path("", views.index, name="index"),
+    path('home/', UserCreateView.as_view())
 
 ]
