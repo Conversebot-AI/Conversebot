@@ -1,10 +1,11 @@
-import React from "react"
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
-import Home from "./pages/Home"
-import NotFound from "./pages/NotFound"
-import ProtectedRoute from "./components/ProtectedRoute"
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import ChatApp from "./components/Chat";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 // Logout component to clear localStorage and redirect to login page
 function Logout() {
@@ -28,6 +29,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
+          }
+        />
+        {/* Route for Chat App */}
+        <Route
+          path="/chat"
+          element={
+            <ProtectedRoute>
+              <ChatApp />
             </ProtectedRoute>
           }
         />
