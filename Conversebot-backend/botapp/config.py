@@ -15,4 +15,6 @@ class Settings(BaseSettings):
     DATABASE_HOST:str = os.environ.get('DATABASE_HOST')
     DATABASE_PORT:str = os.environ.get('DATABASE_PORT')
 
+    OPENAI_API_KEY:str = os.environ.get('OPENAI_API_KEY')
+
 settings = Settings()
